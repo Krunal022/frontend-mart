@@ -1,19 +1,17 @@
-import axios from "./api/Axiosconfig"; // Adjust the path as necessary
+import { useDispatch, useSelector } from "react-redux";
+import { asyncgetusers } from "./store/userAction"; // Adjust the path as necessary
 import { useEffect } from "react";
 
 const App = () => {
-  const getProducts = async () => {
-    try {
-      const response = await axios.get("/products");
-      console.log(response.data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+  const data = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  console.log(data);
 
   useEffect(() => {
-    getProducts();
+    dispatch(asyncgetusers());
   }, []);
+
   return <div className="text-2xl font-bold text-green-500">APP</div>;
 };
 
