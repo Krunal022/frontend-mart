@@ -1,18 +1,20 @@
-import { useDispatch, useSelector } from "react-redux";
-import { asyncgetusers } from "./store/userAction"; // Adjust the path as necessary
-import { useEffect } from "react";
+import { use, useEffect } from "react";
+import Nav from "./components/Nav";
+import Mainroutes from "./routes/Mainroutes";
+import { useDispatch } from "react-redux";
+import { asyncCurrentUser } from "./store/actions/userAction";
 
 const App = () => {
-  const data = useSelector((state) => state);
   const dispatch = useDispatch();
-
-  console.log(data);
-
   useEffect(() => {
-    dispatch(asyncgetusers());
+    dispatch(asyncCurrentUser());
   }, []);
-
-  return <div className="text-2xl font-bold text-green-500">APP</div>;
+  return (
+    <div className="text-2xl font-bold text-green-500">
+      <Nav />
+      <Mainroutes />
+    </div>
+  );
 };
 
 export default App;

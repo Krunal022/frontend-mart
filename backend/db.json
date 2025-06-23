@@ -11,12 +11,12 @@
   ],
   "users": [
     {
-      "id": "QLthJoW7EfcILQuFB7rWK",
-      "username": "admin.master",
-      "email": "admin@master.com",
+      "id": "KHrPkZ-J9EOYPrwX6gU4L",
+      "name": "KRUNAL W",
+      "email": "krunal@admin.com",
       "password": "123456",
-      "isAdmin": true,
-      "cart": []
+      "isAdmin": true
     }
-  ]
+  ],
+  "carts": []
 }
