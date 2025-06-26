@@ -97,6 +97,7 @@ const CreateProduct = () => {
                 {...register("type", { required: "Product type is required" })}
                 className="p-3 text-sm rounded bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-400"
               >
+                <option value="">Select Product Type</option>
                 <option value="electronics">Electronics</option>
                 <option value="clothing">Clothing</option>
                 <option value="accessories">Accessories</option>

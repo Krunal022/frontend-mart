@@ -1,53 +1,52 @@
 import React from "react";
 import { useSelector } from "react-redux";
-
-const products = [
-  {
-    id: "1",
-    title: "Fjallraven - Foldsack No. 1 Backpack",
-    price: 109.95,
-    description: "Perfect pack for everyday use and walks.",
-    category: "men's clothing",
-    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-  },
-  
-];
+import { Link } from "react-router-dom";
 
 const Products = () => {
-  const products = useSelector((state) => state.productsReducer);
-  console.log(products);
-  return (
-    <h1>l</h1>
-    // <div className="min-h-screen bg-gray-900 p-6">
-    //   <h1 className="text-2xl text-white font-medium mb-6 text-center">
-    //     Products
-    //   </h1>
+  const products = useSelector((state) => state.productsReducer.products);
 
-    //   <div className="grid grid-cols-2 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-5 gap-3">
-    //     {products.map((product) => (
-    //       <div
-    //         key={product.id}
-    //         className="bg-gray-800 rounded-lg shadow-md p-3 flex flex-col items-center"
-    //       >
-    //         <img
-    //           src={product.image}
-    //           alt={product.title}
-    //           className="w-full h-36 object-contain mb-3 bg-white rounded"
-    //         />
-    //         <h2 className="text-white text-sm font-medium text-center">
-    //           {product.title}
-    //         </h2>
-    //         <p className="text-gray-400 text-xs mt-1">{product.category}</p>
-    //         <p className="text-blue-400 font-semibold text-sm mt-1">
-    //           ${product.price}
-    //         </p>
-    //         <button className="mt-3 bg-blue-500 hover:bg-blue-600 text-white text-xs font-medium px-4 py-2 rounded transition">
-    //           Add to Cart
-    //         </button>
-    //       </div>
-    //     ))}
-    //   </div>
-    // </div>
+  return (
+    <div className="min-h-screen bg-gray-900 text-white p-4 sm:p-6">
+      <h1 className="text-xl sm:text-2xl font-semibold text-center mb-6">
+        Products
+      </h1>
+
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        {products.map((product) => (
+          <div
+            key={product.id}
+            className="bg-gray-800 p-3 sm:p-4 rounded-xl shadow-md hover:scale-105 transition flex flex-col"
+          >
+            <img
+              className="w-full h-32 sm:h-40 object-contain mb-2 rounded bg-white p-2"
+              src={product.image}
+              alt={product.title}
+            />
+            <h2 className="text-xs sm:text-sm font-medium text-white mb-1 text-center">
+              {product.title}
+            </h2>
+            <p className="text-blue-400 font-semibold text-center text-xs sm:text-sm">
+              ₹ {product.price}
+            </p>
+            <p className="text-gray-400 text-[10px] sm:text-xs mt-2 line-clamp-3 text-center">
+              {product.description}
+            </p>
+
+            <div className="flex flex-col sm:flex-row justify-between gap-2 mt-3">
+              <button className="bg-blue-500 hover:bg-blue-600 text-white text-[10px] sm:text-xs font-medium px-2 py-1 sm:px-3 sm:py-2 rounded-full transition w-full">
+                Add to Cart
+              </button>
+              <Link
+                to={`/product-detail/${product.id}`}
+                className="bg-gray-700 hover:bg-gray-600 text-white text-[10px] sm:text-xs font-medium px-2 py-1 sm:px-3 sm:py-2 rounded-full transition w-full text-center"
+              >
+                More Info
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 
