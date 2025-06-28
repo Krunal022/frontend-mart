@@ -30,9 +30,9 @@ const UserProfile = () => {
   useEffect(() => {
     if (user) {
       reset({
-        name: user.name || "",
-        email: user.email || "",
-        password: user.password || "",
+        name: user?.name || "",
+        email: user?.email || "",
+        password: user?.password || "",
       });
     }
   }, [user, reset]);

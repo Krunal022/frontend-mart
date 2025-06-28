@@ -6,7 +6,7 @@ import { loaduser } from "../store/reducers/userSlice";
 
 const Nav = () => {
   const user = useSelector((state) => state.userReducer.users);
- 
+
   return (
     <nav className="flex justify-center items-center gap-8 bg-gray-800 text-white text-base p-4 shadow-md">
       <NavLink
@@ -30,17 +30,7 @@ const Nav = () => {
         Products
       </NavLink>
 
-      <NavLink
-        to="/cart-product"
-        className={({ isActive }) =>
-          isActive
-            ? "text-blue-400 font-medium"
-            : "hover:text-blue-300 transition"
-        }
-      >
-        Carts
-      </NavLink>
-      {user && user?.isAdmin ? (
+      {user && user?.isAdmin && (
         <>
           <NavLink
             to="/admin/create-product"
@@ -53,32 +43,46 @@ const Nav = () => {
             Create Product
           </NavLink>
         </>
-      ) : (
-        <>
-          {" "}
-          <NavLink
-            to="/login"
-            className={({ isActive }) =>
-              isActive
-                ? "text-blue-400 font-medium"
-                : "hover:text-blue-300 transition"
-            }
-          >
-            Login
-          </NavLink>
-        </>
       )}
-      <NavLink
-        to="/admin/user-profile"
-        className={({ isActive }) =>
-          isActive
-            ? "text-blue-400 font-medium"
-            : "hover:text-blue-300 transition"
-        }
-      >
-        Settings
-      </NavLink>
-      
+      {user && (
+        <NavLink
+          to="/cart-product"
+          className={({ isActive }) =>
+            isActive
+              ? "text-blue-400 font-medium"
+              : "hover:text-blue-300 transition"
+          }
+        >
+          Carts
+        </NavLink>
+      )}
+
+      <>
+        {" "}
+        <NavLink
+          to="/login"
+          className={({ isActive }) =>
+            isActive
+              ? "text-blue-400 font-medium"
+              : "hover:text-blue-300 transition"
+          }
+        >
+          Login
+        </NavLink>
+      </>
+
+      {user && (
+        <NavLink
+          to="/admin/user-profile"
+          className={({ isActive }) =>
+            isActive
+              ? "text-blue-400 font-medium"
+              : "hover:text-blue-300 transition"
+          }
+        >
+          Settings
+        </NavLink>
+      )}
 
       {/* <NavLink
         to="/register"
