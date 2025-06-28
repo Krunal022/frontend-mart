@@ -3,24 +3,32 @@
     {
       "id": "1",
       "title": "Fjallraven - Foldsack No. 1 Backpack",
-      "price": "300334",
+      "price": "3000",
       "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
       "category": "accessories",
       "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "type": "accessories"
+    },
+    {
+      "id": "RHqy1ArudgvqUZmrCWfWL",
+      "title": "Bla",
+      "price": "433",
+      "image": "https://images.ctfassets.net/uexfe9h31g3m/6Ey59QkGCRVokMsC4NKnG2/ddcd256987422a05e2b200b8985240af/Pizza_1_copy.jpg?w=768&h=512&fm=webp&fit=thumb&q=90",
+      "description": "asdfasdf ewrqewrqads dfsfas vcbxcb hhwr",
       "type": "accessories"
     }
   ],
   "users": [
     {
       "id": "KHrPkZ-J9EOYPrwX6gU4L",
-      "name": "KRUNAL W",
+      "name": "KRUNAL WAGHELA",
       "email": "krunal@admin.com",
       "password": "123456",
       "isAdmin": true
     },
     {
-      "id": "cRRZY-vwWCTxtIswiMRFi",
-      "name": "D",
+      "id": "dbCtzqZIC0RhQjlsTeC0N",
+      "name": "DD",
       "email": "D@d.com",
       "password": "123",
       "isAdmin": false

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { asyncLoginUser } from "../store/actions/userAction";
@@ -7,9 +7,10 @@ import { asyncLoginUser } from "../store/actions/userAction";
 const Login = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const dispatch = useDispatch();
-
+const navigate = useNavigate()
   const LoginHandler = (user) => {
     dispatch(asyncLoginUser(user));
+    navigate('/products')
     reset();
   };
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -6,6 +6,7 @@ import {
   asyncUpdateProduct,
 } from "../store/actions/productAction";
 import { useForm } from "react-hook-form";
+import { loadproduct } from "../store/reducers/productSlice";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -13,6 +14,7 @@ const ProductDetail = () => {
   const user = useSelector((state) => state.userReducer.users);
   //   console.log(user);
   const product = products.find((p) => p.id === id || p.id === Number(id));
+  
 
   const {
     register,
@@ -89,10 +91,10 @@ const ProductDetail = () => {
           <div className="mt-3 text-xs text-gray-500 space-y-1">
             <p>
               Categories:{" "}
-              <span className="text-white">Clothing, Laptops & Desktops</span>
+              <span className="text-white">{product.type}</span>
             </p>
             <p>
-              Tag: <span className="text-white">blouse</span>
+              Tag: <span className="text-white">👋🏻</span>
             </p>
           </div>
         </div>
