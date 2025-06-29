@@ -1,9 +1,31 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { asyncUpdateUser } from "../store/actions/userAction";
 
 const Products = () => {
+  
   const products = useSelector((state) => state.productsReducer.products);
+  const user = useSelector((state) => state.userReducer.users);
+  const dispatch = useDispatch();
+  
+  const addToCartHandler = (id) => {
+    
+    const copyUser = { ...user, cart: [...user.cart] };
+    
+    const x = copyUser.cart.findIndex((c) => c.productId == id);
+    
+    if (x == -1) {
+      copyUser.cart.push({ productId: id, quantity: 1 });
+    } else {
+      copyUser.cart[x] = {
+        productId: id,
+        quantity: copyUser.cart[x].quantity + 1,
+      };
+    }
+    
+    dispatch(asyncUpdateUser(copyUser.id, copyUser));
+  };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white p-4 sm:p-6">
@@ -33,7 +55,10 @@ const Products = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row justify-between gap-2 mt-3">
-              <button className="bg-blue-500 hover:bg-blue-600 text-white text-[10px] sm:text-xs font-medium px-2 py-1 sm:px-3 sm:py-2 rounded-full transition w-full">
+              <button
+                onClick={() => addToCartHandler(product.id)}
+                className="bg-blue-500 hover:bg-blue-600 text-white text-[10px] sm:text-xs font-medium px-2 py-1 sm:px-3 sm:py-2 rounded-full transition w-full"
+              >
                 Add to Cart
               </button>
               <Link

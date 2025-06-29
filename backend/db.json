@@ -24,15 +24,25 @@
       "name": "KRUNAL WAGHELA",
       "email": "krunal@admin.com",
       "password": "123456",
-      "isAdmin": true
+      "isAdmin": true,
+      "cart": [
+        {
+          "productId": "1",
+          "quantity": 3
+        },
+        {
+          "productId": "RHqy1ArudgvqUZmrCWfWL",
+          "quantity": 1
+        }
+      ]
     },
     {
       "id": "dbCtzqZIC0RhQjlsTeC0N",
       "name": "DD",
       "email": "D@d.com",
       "password": "123",
-      "isAdmin": false
+      "isAdmin": false,
+      "cart": []
     }
-  ],
-  "carts": []
+  ]
 }
