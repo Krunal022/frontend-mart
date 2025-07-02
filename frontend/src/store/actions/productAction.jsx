@@ -5,7 +5,7 @@ import { loadproduct } from "../reducers/productSlice";
 export const asyncLoadProduct = () => async (dispatch, getState) => {
   try {
     const { data } = await axios.get("/products");
-    console.log(data);
+    // console.log(data);
     dispatch(loadproduct(data));
   } catch (error) {
     console.log(error);
@@ -16,6 +16,11 @@ export const asyncCreateProduct = (product) => async (dispatch, getState) => {
   try {
     await axios.post("/products", product);
     dispatch(asyncLoadProduct());
+    toast.success("Product Created!", {
+      position: "top-right",
+      autoClose: 1000,
+      transition: Flip,
+    });
   } catch (error) {
     console.log(error);
   }
@@ -28,7 +33,7 @@ export const asyncDeleteProduct = (id) => async (dispatch, getState) => {
       position: "top-right",
       autoClose: 1000,
       transition: Flip,
-    }); 
+    });
   } catch (error) {
     console.log(error);
   }

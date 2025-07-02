@@ -14,7 +14,6 @@ const ProductDetail = () => {
   const user = useSelector((state) => state.userReducer.users);
   //   console.log(user);
   const product = products.find((p) => p.id === id || p.id === Number(id));
-  
 
   const {
     register,
@@ -90,8 +89,7 @@ const ProductDetail = () => {
 
           <div className="mt-3 text-xs text-gray-500 space-y-1">
             <p>
-              Categories:{" "}
-              <span className="text-white">{product.type}</span>
+              Categories: <span className="text-white">{product.type}</span>
             </p>
             <p>
               Tag: <span className="text-white">👋🏻</span>

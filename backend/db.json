@@ -34,30 +34,7 @@
       "password": "123",
       "isAdmin": false,
       "cart": [
-        [],
-        {
-          "product": {
-            "id": "1",
-            "title": "Fjallraven - Foldsack No. 1 Backpack",
-            "price": "3000",
-            "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-            "category": "accessories",
-            "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-            "type": "accessories"
-          },
-          "quantity": 1
-        },
-        {
-          "product": {
-            "id": "RHqy1ArudgvqUZmrCWfWL",
-            "title": "Bla",
-            "price": "433",
-            "image": "https://images.ctfassets.net/uexfe9h31g3m/6Ey59QkGCRVokMsC4NKnG2/ddcd256987422a05e2b200b8985240af/Pizza_1_copy.jpg?w=768&h=512&fm=webp&fit=thumb&q=90",
-            "description": "asdfasdf ewrqewrqads dfsfas vcbxcb hhwr",
-            "type": "accessories"
-          },
-          "quantity": 3
-        }
+        []
       ]
     }
   ]
