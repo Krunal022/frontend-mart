@@ -9,14 +9,14 @@ const App = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.productsReducer.products);
   const user = useSelector((state) => state.userReducer.users);
-  // console.log(products)
+  // console.log(products);
   useEffect(() => {
     !user && dispatch(asyncCurrentUser());
   }, [user]);
 
   useEffect(() => {
-    dispatch(asyncLoadProduct());
-    // products.length == 0 && dispatch(asyncLoadProduct());
+    // dispatch(asyncLoadProduct());
+    products.length == 0 && dispatch(asyncLoadProduct());
   }, [products]);
 
   return (

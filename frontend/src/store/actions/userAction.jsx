@@ -48,6 +48,7 @@ export const asyncLoginUser = (user) => async (dispatch, getState) => {
       user
     );
     localStorage.setItem("user", JSON.stringify(data[0]));
+    dispatch(asyncCurrentUser())
     toast.success("Logged In successfully!", {
       position: "top-right",
       autoClose: 1000,

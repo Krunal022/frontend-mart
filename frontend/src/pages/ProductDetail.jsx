@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -6,14 +5,13 @@ import {
   asyncUpdateProduct,
 } from "../store/actions/productAction";
 import { useForm } from "react-hook-form";
-import { loadproduct } from "../store/reducers/productSlice";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const products = useSelector((state) => state.productsReducer.products);
   const user = useSelector((state) => state.userReducer.users);
   //   console.log(user);
-  const product = products.find((p) => p.id === id || p.id === Number(id));
+  const product = products.find((p) => p.id === id);
 
   const {
     register,
@@ -39,14 +37,6 @@ const ProductDetail = () => {
   const UpdateProductHandler = (updatedProduct) => {
     dispatch(asyncUpdateProduct(product.id, updatedProduct));
   };
-
-  if (!product) {
-    return (
-      <div className="min-h-screen flex justify-center items-center bg-gray-900 text-white">
-        <h2>Product Not Found</h2>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gray-900 text-white p-6 space-y-10">
