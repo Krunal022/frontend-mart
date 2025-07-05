@@ -11,13 +11,16 @@ const App = () => {
   const user = useSelector((state) => state.userReducer.users);
   // console.log(products);
   useEffect(() => {
-    !user && dispatch(asyncCurrentUser());
-  }, [user]);
+    if (!user) {
+      dispatch(asyncCurrentUser());
+    }
+  }, [dispatch, user]);
 
   useEffect(() => {
-    // dispatch(asyncLoadProduct());
-    products.length == 0 && dispatch(asyncLoadProduct());
-  }, [products]);
+    if (products.length === 0) {
+      dispatch(asyncLoadProduct());
+    }
+  }, [dispatch, products]);
 
   return (
     <div className="h-screen bg-blue-400 text-2xl">

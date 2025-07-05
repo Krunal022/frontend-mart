@@ -1,6 +1,8 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import { lazy } from "react";
 import UnAuth from "./UnAuth";
+import { useSelector } from "react-redux";
+
 const Home = lazy(() => import("../pages/Home"));
 const Product = lazy(() => import("../pages/Products"));
 const Login = lazy(() => import("../pages/Login"));
@@ -14,17 +16,17 @@ const PageNotFound = lazy(() => import("../PageNotFound"));
 const Auth = lazy(() => import("./Auth"));
 
 const Mainroutes = () => {
+  const user = useSelector((state) => state.userReducer.users);
+
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-
       <Route path="/products" element={<Product />} />
 
       <Route
         path="/login"
         element={
           <UnAuth>
-            {" "}
             <Login />
           </UnAuth>
         }
@@ -42,34 +44,32 @@ const Mainroutes = () => {
         path="/product-detail/:id"
         element={
           <Auth>
-            {" "}
             <ProductDetail />
           </Auth>
         }
       />
+
       <Route
-        path="admin/create-product"
+        path="/admin/create-product"
         element={
           <Auth>
-            {" "}
-            <CreateProduct />
+            {user?.isAdmin ? <CreateProduct /> : <Navigate to="/" />}
           </Auth>
         }
       />
       <Route
-        path="admin/update-product/:id"
+        path="/admin/update-product/:id"
         element={
           <Auth>
-            {" "}
-            <UpdateProduct />
+            {user?.isAdmin ? <UpdateProduct /> : <Navigate to="/" />}
           </Auth>
         }
       />
+
       <Route
         path="/cart-product"
         element={
           <Auth>
-            {" "}
             <Cart />
           </Auth>
         }
