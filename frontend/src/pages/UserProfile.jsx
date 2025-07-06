@@ -118,18 +118,18 @@ const UserProfile = () => {
               Update Profile
             </button>
             <button
-              onClick={userDeleteHandler}
-              type="button"
-              className="bg-red-500 hover:bg-red-600 text-white text-sm font-medium px-4 py-2 rounded"
-            >
-              Delete Profile
-            </button>
-            <button
               type="button"
               onClick={LogoutUserHandler}
               className="bg-gray-600 hover:bg-gray-500 text-white text-sm font-medium px-4 py-2 rounded"
             >
               Logout
+            </button>
+            <button
+              onClick={userDeleteHandler}
+              type="button"
+              className="bg-red-500 hover:bg-red-600 text-white text-sm font-medium px-4 py-2 rounded"
+            >
+              Delete Profile
             </button>
           </div>
         </form>
